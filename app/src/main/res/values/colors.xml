@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="purple_200">#FFBB86FC</color>
+    <color name="purple_500">#FF6200EE</color>
+    <color name="purple_700">#FF3700B3</color>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_700">#FF018786</color>
+
+    <color name="color_white_alpha_75">#BFFFFFFF</color>
+    <color name="color_white_alpha_60">#99FFFFFF</color>
+    <color name="color_soft_sunrise_opacity_40">#66FFB5AE</color>
+    <color name="color_btn_background">#9379D2</color>
+    <color name="color_purple_haze_alpha_30">#4DAE96E8</color>
+
+    <color name="color_transparent">#00FFFFFF</color>
+    <color name="color_white_transparent_10">#1AFFFFFF</color>
+    <color name="color_white_transparent_40">#66FFFFFF</color>
+
+
+
+    <color name="colorPrimary">#0F0A29</color>
+    <color name="colorSecondary">#FFFFFFFF</color>
+    <color name="color_background">#FF7E4FF4</color>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="color_purple_transparent_20">#33D479FF</color>
+
+    <!--Home Screen Box1 Color Palette-->
+    <color name="box1_color">#8A2EFF</color>
+    <color name="box1_color_radial">#D479FF</color>
+    <color name="box1_color2_radial">#261B33</color>
+    <color name="box1_stroke_color">#962EFF</color>
+
+    <color name="nav_background">#7E72A5</color>
+    <color name="nav_tab">#8D7DBD</color>
+    <color name="nav_tab_shadow">#33000000</color>
+
+
+    <!--fonts-->
+    <color name="color_purple_haze">#AE96E8</color>
+    <color name="color_soft_sunrise">#FFB5AE</color>
+    <color name="HawkesBlue">#E4DAFF</color>
+    <color name="PaleCopper">#D28977</color>
+    <color name="Cosmos">#FCD7D4</color>
+    <color name="grey">#888595</color>
+    <color name="selected_background">#8CF0C6BC</color>
+    <color name="selected_item">#F0C6BC</color>
+</resources>
