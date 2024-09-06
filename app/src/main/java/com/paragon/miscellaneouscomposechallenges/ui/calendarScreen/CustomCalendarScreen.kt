@@ -1,4 +1,4 @@
-package com.paragon.miscellaneouscomposechallenges.ui
+package com.paragon.miscellaneouscomposechallenges.ui.calendarScreen
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
