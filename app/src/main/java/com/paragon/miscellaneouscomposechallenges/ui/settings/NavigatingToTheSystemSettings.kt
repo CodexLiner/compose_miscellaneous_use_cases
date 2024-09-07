@@ -50,7 +50,7 @@ fun NavigatingToTheSystemSettings() {
     val launcherSetting = rememberLauncherForActivityResult(contract = ActivityResultContracts.StartActivityForResult()) {
         textFieldState = it.toString()
     }
-    val takePicture = rememberLauncherForActivityResult(contract = ActivityResultContracts.OpenDocumentTree()) {
+    val takePicture = rememberLauncherForActivityResult(contract = ActivityResultContracts.TakePicture()) {
         textFieldState = it.toString()
     }
     Column(

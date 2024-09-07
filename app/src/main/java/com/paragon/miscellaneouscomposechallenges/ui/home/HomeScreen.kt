@@ -25,7 +25,8 @@ fun HomeScreen(onNavigate: (NavigationItem) -> Unit) {
         NavigationItem.CalendarScreen,
         NavigationItem.TimePickerScreen,
         NavigationItem.FilePickerScreen,
-        NavigationItem.NavigatingToTheSystemSettings
+        NavigationItem.NavigatingToTheSystemSettings,
+        NavigationItem.EventBusOnComposableEvent,
     )
     LazyColumn(
         modifier = Modifier .fillMaxSize().safeDrawingPadding().padding(vertical = 10.dp, horizontal = 10.dp),
