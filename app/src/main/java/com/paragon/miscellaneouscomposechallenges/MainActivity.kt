@@ -68,7 +68,7 @@ class MainActivity : ComponentActivity() {
                     ) {
                         NavHost(
                             navController = navController,
-                            startDestination = NavigationItem.EventBusOnComposableEvent.route
+                            startDestination = NavigationItem.HomeScreen.route
                         ) {
                             composable(NavigationItem.HomeScreen.route) {
                                 HomeScreen {
