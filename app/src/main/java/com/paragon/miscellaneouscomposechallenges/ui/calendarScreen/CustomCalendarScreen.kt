@@ -28,9 +28,9 @@ import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import com.paragon.dvcore.utils.extensions.yyyy_MM_DD
-import com.paragon.miscellaneouscomposechallenges.ui.calender.CustomCalendar
-import com.paragon.miscellaneouscomposechallenges.ui.calender.DateValidator
-import com.paragon.miscellaneouscomposechallenges.ui.materialCalendar.MaterialCalendar
+import com.paragon.miscellaneouscomposechallenges.ui.calendarScreen.calender.CustomCalendar
+import com.paragon.miscellaneouscomposechallenges.ui.calendarScreen.calender.DateValidator
+import com.paragon.miscellaneouscomposechallenges.ui.calendarScreen.materialCalendar.MaterialCalendar
 import com.paragon.miscellaneouscomposechallenges.ui.theme.CustomCalendarTheme
 import com.paragon.miscellaneouscomposechallneges.R
 import com.paragon.riyadhair.ui.compose.ui.components.calender.dropShadow

@@ -25,10 +25,10 @@ fun HomeScreen(onNavigate: (NavigationItem) -> Unit) {
         NavigationItem.CalendarScreen,
         NavigationItem.TimePickerScreen,
         NavigationItem.FilePickerScreen,
+        NavigationItem.NavigatingToTheSystemSettings
     )
     LazyColumn(
-        modifier = Modifier
-            .fillMaxSize().safeDrawingPadding().padding(vertical = 10.dp, horizontal = 10.dp),
+        modifier = Modifier .fillMaxSize().safeDrawingPadding().padding(vertical = 10.dp, horizontal = 10.dp),
         verticalArrangement = Arrangement.spacedBy(10.dp)
     ) {
         itemsIndexed(list) { _, item ->

@@ -1,4 +1,4 @@
-package com.paragon.miscellaneouscomposechallenges.ui.materialCalendar
+package com.paragon.miscellaneouscomposechallenges.ui.calendarScreen.materialCalendar
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -24,8 +24,8 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.window.Dialog
 import androidx.compose.ui.window.DialogProperties
 import com.paragon.dvcore.utils.extensions.yyyy_MM_DD
-import com.paragon.miscellaneouscomposechallenges.ui.calender.CalendarValidator
-import com.paragon.miscellaneouscomposechallenges.ui.calender.DateValidator
+import com.paragon.miscellaneouscomposechallenges.ui.calendarScreen.calender.CalendarValidator
+import com.paragon.miscellaneouscomposechallenges.ui.calendarScreen.calender.DateValidator
 import com.paragon.miscellaneouscomposechallneges.R
 import java.time.Instant
 import java.time.LocalDate

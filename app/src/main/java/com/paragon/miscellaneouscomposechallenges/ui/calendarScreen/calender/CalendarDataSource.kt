@@ -1,7 +1,7 @@
 package com.paragon.riyadhair.ui.compose.ui.components.calender
 
-import com.paragon.miscellaneouscomposechallenges.ui.calender.CalendarUiModel
-import com.paragon.miscellaneouscomposechallenges.ui.calender.CalendarUiModel.Date
+import com.paragon.miscellaneouscomposechallenges.ui.calendarScreen.calender.CalendarUiModel
+import com.paragon.miscellaneouscomposechallenges.ui.calendarScreen.calender.CalendarUiModel.Date
 import java.time.DayOfWeek
 import java.time.LocalDate
 import java.time.temporal.ChronoUnit

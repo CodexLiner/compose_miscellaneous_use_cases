@@ -50,6 +50,7 @@ android {
 }
 
 dependencies {
+    implementation("com.github.skydoves:cloudy:0.2.2")
     implementation(libs.coil.compose)
     implementation(libs.accompanist.pager)
     implementation(libs.androidx.material.icons.extended)

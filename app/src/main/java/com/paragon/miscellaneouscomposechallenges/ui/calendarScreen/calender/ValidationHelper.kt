@@ -1,4 +1,4 @@
-package com.paragon.miscellaneouscomposechallenges.ui.calender
+package com.paragon.miscellaneouscomposechallenges.ui.calendarScreen.calender
 
 import com.paragon.dvcore.utils.extensions.getDate
 import com.paragon.dvcore.utils.extensions.yyyy_MM_DD

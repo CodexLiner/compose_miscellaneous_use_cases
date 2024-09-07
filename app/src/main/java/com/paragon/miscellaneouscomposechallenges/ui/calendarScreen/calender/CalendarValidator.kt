@@ -1,4 +1,4 @@
-package com.paragon.miscellaneouscomposechallenges.ui.calender
+package com.paragon.miscellaneouscomposechallenges.ui.calendarScreen.calender
 
 import android.os.Parcel
 import android.os.Parcelable

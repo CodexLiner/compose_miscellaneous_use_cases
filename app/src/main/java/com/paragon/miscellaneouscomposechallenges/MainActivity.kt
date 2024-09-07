@@ -22,6 +22,7 @@ import androidx.navigation.compose.rememberNavController
 import com.paragon.miscellaneouscomposechallenges.ui.calendarScreen.CustomCalendarScreen
 import com.paragon.miscellaneouscomposechallenges.ui.filePicker.FilePicker
 import com.paragon.miscellaneouscomposechallenges.ui.home.HomeScreen
+import com.paragon.miscellaneouscomposechallenges.ui.settings.NavigatingToTheSystemSettings
 import com.paragon.miscellaneouscomposechallenges.ui.theme.MiscellaneousComposeChallengesTheme
 import com.paragon.miscellaneouscomposechallenges.ui.timePicker.MaterialTimePicker
 
@@ -30,6 +31,7 @@ sealed class NavigationItem(var route: String) {
     data object CalendarScreen : NavigationItem("CalendarScreen")
     data object TimePickerScreen : NavigationItem("TimePickerScreen")
     data object FilePickerScreen : NavigationItem("FilePickerScreen")
+    data object NavigatingToTheSystemSettings : NavigationItem("NavigatingToTheSystemSettings")
 }
 
 
@@ -52,7 +54,7 @@ class MainActivity : ComponentActivity() {
                     ) {
                         NavHost(
                             navController = navController,
-                            startDestination = NavigationItem.HomeScreen.route
+                            startDestination = NavigationItem.NavigatingToTheSystemSettings.route
                         ) {
                             composable(NavigationItem.HomeScreen.route) {
                                 HomeScreen {
@@ -67,6 +69,9 @@ class MainActivity : ComponentActivity() {
                             }
                             composable(NavigationItem.FilePickerScreen.route) {
                                 FilePicker()
+                            }
+                            composable(NavigationItem.NavigatingToTheSystemSettings.route) {
+                                NavigatingToTheSystemSettings()
                             }
                         }
                     }

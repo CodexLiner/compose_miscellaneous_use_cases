@@ -1,4 +1,4 @@
-package com.paragon.miscellaneouscomposechallenges.ui.calender
+package com.paragon.miscellaneouscomposechallenges.ui.calendarScreen.calender
 
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.background

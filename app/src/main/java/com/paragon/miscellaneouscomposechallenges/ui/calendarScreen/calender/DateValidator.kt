@@ -1,4 +1,4 @@
-package com.paragon.miscellaneouscomposechallenges.ui.calender
+package com.paragon.miscellaneouscomposechallenges.ui.calendarScreen.calender
 
 enum class DateValidator {
     THIS_WEEK,
