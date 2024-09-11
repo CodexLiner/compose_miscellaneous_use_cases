@@ -18,21 +18,27 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.itemsIndexed
+import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material3.Button
 import androidx.compose.material3.Card
 import androidx.compose.material3.DropdownMenu
 import androidx.compose.material3.DropdownMenuItem
 import androidx.compose.material3.OutlinedButton
+import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
+import androidx.compose.material3.TextField
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.dp
+import androidx.core.app.ActivityOptionsCompat
 import androidx.core.graphics.drawable.toDrawable
 import coil.compose.AsyncImage
 
@@ -41,12 +47,17 @@ fun FilePicker() {
     val result = remember { mutableStateOf<List<Uri?>?>(null) }
     var menuExpanded by remember { mutableStateOf(false) }
     var fileTypeState by remember { mutableStateOf(Pair(0, "Select File Type")) }
+    var maxItem by remember { mutableIntStateOf(10) }
     val launcher = rememberLauncherForActivityResult(ActivityResultContracts.PickVisualMedia()) {
         result.value = listOf(it)
     }
-    val imageLauncherMultiple = rememberLauncherForActivityResult(ActivityResultContracts.PickMultipleVisualMedia()) {
+    val imageLauncherMultiple = rememberLauncherForActivityResult(ActivityResultContracts.PickMultipleVisualMedia(maxItems = maxItem)) {
         result.value = it
     }
+    val allContent = rememberLauncherForActivityResult(ActivityResultContracts.GetContent()) {
+        result.value = listOf(it)
+    }
+
     Column(
         modifier = Modifier.fillMaxSize(),
         verticalArrangement = Arrangement.Bottom,
@@ -61,14 +72,17 @@ fun FilePicker() {
                     AsyncImage(
                         contentScale = androidx.compose.ui.layout.ContentScale.Crop,
                         modifier = Modifier.fillMaxSize(),
-                        model = if (fileTypeState.first == 3 || fileTypeState.first == 4 ) getVideoFirstFrame(LocalContext.current , uri!!) else uri,
+                        model = if (fileTypeState.first == 3 || fileTypeState.first == 4 ) getVideoFirstFrame(LocalContext.current , uri) else uri,
                         contentDescription = null,
                     )
                 }
             }
         }
 
-        Row(horizontalArrangement = Arrangement.spacedBy(10.dp)) {
+        Row(horizontalArrangement = Arrangement.spacedBy(10.dp) , modifier = Modifier.padding(5.dp)) {
+            OutlinedTextField(modifier = Modifier.weight(0.2f), keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number), value = maxItem.toString(), onValueChange = {
+                maxItem = it.toInt()
+            })
             OutlinedButton(onClick = {menuExpanded = true }) {
                 Text(text = fileTypeState.second)
                 DropdownMenu(
@@ -81,6 +95,7 @@ fun FilePicker() {
                     DropdownMenuItem(onClick = { menuExpanded = false ; fileTypeState = Pair(2 , "Image Multiple")   } , text = { Text("Image Multiple")})
                     DropdownMenuItem(onClick = { menuExpanded = false ; fileTypeState = Pair(3 , "Video Single")   } , text = { Text("Video Single")})
                     DropdownMenuItem(onClick = { menuExpanded = false ; fileTypeState = Pair(4 , "Video Multiple")   } , text = { Text("Video Multiple")})
+                    DropdownMenuItem(onClick = { menuExpanded = false ; fileTypeState = Pair(5 , "All Content")   } , text = { Text("All Content")})
                 }
             }
             Button(onClick = {
@@ -89,6 +104,7 @@ fun FilePicker() {
                     2 -> imageLauncherMultiple.launch(PickVisualMediaRequest(mediaType = ActivityResultContracts.PickVisualMedia.ImageOnly))
                     3 -> launcher.launch(PickVisualMediaRequest(mediaType = ActivityResultContracts.PickVisualMedia.VideoOnly))
                     4 -> imageLauncherMultiple.launch(PickVisualMediaRequest(mediaType = ActivityResultContracts.PickVisualMedia.VideoOnly))
+                    5 -> allContent.launch("*/*")
                 }
             }) {
                 Text("Open File Picker")
@@ -99,10 +115,10 @@ fun FilePicker() {
 
 
 @SuppressLint("Recycle")
-fun getVideoFirstFrame(context: Context, videoUri: Uri): Bitmap? {
+fun getVideoFirstFrame(context: Context, videoUri: Uri?): Bitmap? {
     val retriever = MediaMetadataRetriever()
     return try {
-        val fileDescriptor = context.contentResolver.openFileDescriptor(videoUri, "r")?.fileDescriptor
+        val fileDescriptor = context.contentResolver.openFileDescriptor(videoUri ?: Uri.parse(""), "r")?.fileDescriptor
         retriever.setDataSource(fileDescriptor)
         retriever.getFrameAtTime(0)
     } catch (e: Exception) {
